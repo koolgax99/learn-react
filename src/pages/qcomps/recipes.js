@@ -1,3 +1,5 @@
+import { defaultConfig } from "next/dist/server/config-shared";
+
 export const recipes = [{
   id: 'greek-salad',
   name: 'Greek Salad',
@@ -16,7 +18,22 @@ export default function RecipeList() {
   return (
     <div>
       <h1>Recipes</h1>
-      {}
+      {
+        recipes.map((recipe) =>
+          <div key={recipe.id}>
+            <h1>{recipe.name}</h1>
+              <ul>
+                {
+                Array.from(recipe.ingredients).map((ingdt, index) => 
+                  <li key={index}>
+                    {ingdt}
+                  </li>
+                )
+            }
+              </ul>
+          </div>
+          )
+      }
     </div>
   );
 }
