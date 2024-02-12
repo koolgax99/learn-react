@@ -11,14 +11,14 @@ export default function MenuBar() {
   );
 }
 
-function AButton() {
+function AButton(props) {
   const handleClick = () => {
-    document.getElementById(`${id}`).style.backgroundColor = color;
-    document.getElementById(`${id}`).style.fontSize = size;
+    document.getElementById(`${props.id}`).style.backgroundColor = props.color;
+    document.getElementById(`${props.id}`).style.fontSize = props.size;
   }
   return (
-    <button id={`${id}`} onClick={handleClick}>
-      {children}
+    <button id={props.id} onClick={handleClick}>
+      {props.children}
     </button>
   );
 }
